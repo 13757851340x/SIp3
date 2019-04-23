@@ -32,4 +32,105 @@ public class Hecho2 {
     public Hecho2(){
 
     }
+
+    public Hecho2(String nombre, String email, String fecha, String pais, String capital, String item, String descripcion, int importe, int valoracion, String fechaPedido) {
+        this.nombre = nombre;
+        this.email = email;
+        this.fecha = fecha;
+        this.pais = pais;
+        this.capital = capital;
+        this.item = item;
+        this.descripcion = descripcion;
+        this.importe = importe;
+        this.valoracion = valoracion;
+        this.fechaPedido = fechaPedido;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+
+    public String getCapital() {
+        return capital;
+    }
+
+    public void setCapital(String capital) {
+        this.capital = capital;
+    }
+
+    public String getItem() {
+        return item;
+    }
+
+    public void setItem(String item) {
+        this.item = item;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public int getImporte() {
+        return importe;
+    }
+
+    public void setImporte(int importe) {
+        this.importe = importe;
+    }
+
+    public int getValoracion() {
+        return valoracion;
+    }
+
+    public void setValoracion(int valoracion) {
+        this.valoracion = valoracion;
+    }
+
+    public String getFechaPedido() {
+        return fechaPedido;
+    }
+
+    public void setFechaPedido(String fechaPedido) {
+        this.fechaPedido = fechaPedido;
+    }
 }

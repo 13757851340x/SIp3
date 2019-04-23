@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Data
 public class Cliente {
@@ -95,5 +97,15 @@ public class Cliente {
 
     public void setAnyo(int anyo) {
         this.anyo = anyo;
+    }
+
+    public boolean contenido(List<Cliente> clientes){
+        boolean contiene = false;
+        for(Cliente c: clientes){
+            if(c.getNombre().equals(this.getNombre())&&c.getApellido().equals(this.getApellido())){
+                contiene=true;
+            }
+        }
+        return contiene;
     }
 }
