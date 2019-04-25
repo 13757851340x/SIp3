@@ -8,7 +8,7 @@ public class DividirNombre {
     
     List<Hecho3> hechos3 = new ArrayList<>();
 
-    File archivo = new File ("../Data/Practica_3_SSII_hechos3.csv");
+    File archivo = new File ("Data/Practica_3_SSII_hechos3.csv");
     FileReader fr = new FileReader (archivo);
     BufferedReader bf = new BufferedReader(fr);
 
