@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class dividirNombre {
+public class DividirNombre {
     
     List<Hecho3> hechos3 = new ArrayList<>();
 
@@ -15,7 +15,7 @@ public class dividirNombre {
     String[] parts;
     String[] apellidoNombre;
 
-    public void separar() {
+    public List<Hecho3> separar() {
         try {
             String lines;
             Hecho3 h3 = null;
@@ -44,9 +44,10 @@ public class dividirNombre {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return this.hechos3;
     }
 
-    public dividirNombre() throws FileNotFoundException, IOException {
+    public DividirNombre() throws FileNotFoundException, IOException {
     }
 
 
