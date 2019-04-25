@@ -1,10 +1,13 @@
 package p3.p3.Model;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class dividirNombre {
+    
+    List<Hecho3> hechos3 = new ArrayList<>();
 
-    Hecho3 h3;
     File archivo = new File ("../Data/Practica_3_SSII_hechos3.csv");
     FileReader fr = new FileReader (archivo);
     BufferedReader bf = new BufferedReader(fr);
@@ -15,10 +18,12 @@ public class dividirNombre {
     public void separar() {
         try {
             String lines;
+            Hecho3 h3 = null;
             while ((lines = bf.readLine()) != null) {
                 System.out.println(lines);
                 parts = lines.split(";");
                 apellidoNombre = parts[0].split(",");
+                
                 h3.setApellido(apellidoNombre[0]);
                 h3.setNombre(apellidoNombre[1].substring(1));
                 h3.setEmail(parts[1]);
@@ -33,6 +38,8 @@ public class dividirNombre {
                 h3.setImporte(Integer.parseInt(parts[10]));
                 h3.setValoracion(Integer.parseInt(parts[11]));
                 h3.setFechaPedido(parts[12]);
+                hechos3.add(h3);
+
             }
         } catch (IOException e) {
             e.printStackTrace();
