@@ -14,6 +14,10 @@ public class Hecho3 {
     private String apellido;
     @Column(name = "email")
     private String email;
+    @Column(name = "day")
+    private int dia;
+    @Column(name = "month")
+    private String mes;
     @Column(name = "year")
     private int anyo;
     @Column(name = "Country")
@@ -37,6 +41,8 @@ public class Hecho3 {
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
+        this.dia = dia;
+        this.mes = mes;
         this.anyo = anyo;
         this.pais = country;
         this.capital = capital;
@@ -78,6 +84,22 @@ public class Hecho3 {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public int getDia() {
+        return dia;
+    }
+
+    public void setDia(int dia) {
+        this.dia = dia;
+    }
+
+    public String getMes() {
+        return mes;
+    }
+
+    public void setMes(String mes) {
+        this.mes = mes;
     }
 
     public int getAnyo() {
