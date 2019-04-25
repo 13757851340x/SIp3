@@ -3,12 +3,10 @@ package p3.p3.Model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import lombok.Data;
 
 import java.util.List;
 
 @Entity
-@Data
 public class Cliente {
     @Id
     @GeneratedValue
