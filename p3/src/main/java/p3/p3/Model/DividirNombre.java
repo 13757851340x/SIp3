@@ -6,7 +6,9 @@ import java.util.List;
 
 public class DividirNombre {
 
-    List<Hecho> hechos = new ArrayList<>();
+    List<Hecho> hechos1 = new ArrayList<>();
+    List<Hecho> hechos2 = new ArrayList<>();
+    List<Hecho> hechos3 = new ArrayList<>();
 
     File archivo1 = new File ("Data/Practica_3_SSII_hechos1.csv");
     FileReader fr1 = new FileReader (archivo1);
@@ -49,13 +51,13 @@ public class DividirNombre {
                 h1.setImporte(Integer.parseInt(parts[10]));
                 h1.setValoracion(Integer.parseInt(parts[11]));
                 h1.setFechaPedido(parts[12]);
-                hechos.add(h1);
+                hechos1.add(h1);
 
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return this.hechos;
+        return this.hechos1;
     }
 
     public List<Hecho> separar_hecho2() {
@@ -81,13 +83,13 @@ public class DividirNombre {
                 h2.setImporte(Integer.parseInt(parts[8]));
                 h2.setValoracion(Integer.parseInt(parts[7]));
                 h2.setFechaPedido(parts[9]);
-                hechos.add(h2);
+                hechos2.add(h2);
 
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return this.hechos;
+        return this.hechos2;
     }
 
     public List<Hecho> separar_hecho3() {
@@ -113,13 +115,13 @@ public class DividirNombre {
                 h3.setImporte(Integer.parseInt(parts[10]));
                 h3.setValoracion(Integer.parseInt(parts[11]));
                 h3.setFechaPedido(parts[12]);
-                hechos.add(h3);
+                hechos3.add(h3);
 
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return this.hechos;
+        return this.hechos3;
     }
 
     public DividirNombre() throws FileNotFoundException, IOException {
