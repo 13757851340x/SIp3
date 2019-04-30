@@ -1,9 +1,6 @@
 package p3.p3.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -18,12 +15,13 @@ public class Cliente {
     private int dia;
     private String mes;
     private int anyo;
+    private int importe;
 
-    public Cliente(){
+   public Cliente(){
 
-    }
+   }
 
-    public Cliente(String nombre, String apellido, String email, String dominio, int dia, String mes, int anyo) {
+    public Cliente(String nombre, String apellido, String email, String dominio, int dia, String mes, int anyo,int importe) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
@@ -31,6 +29,7 @@ public class Cliente {
         this.dia = dia;
         this.mes = mes;
         this.anyo = anyo;
+        this.importe=importe;
     }
 
     public Long getId() {
@@ -97,11 +96,20 @@ public class Cliente {
         this.anyo = anyo;
     }
 
+    public int getImporte() {
+        return importe;
+    }
+
+    public void setImporte(int importe) {
+        this.importe = importe;
+    }
+
     public boolean contenido(List<Cliente> clientes){
         boolean contiene = false;
         for(Cliente c: clientes){
             if(c.getNombre().equals(this.getNombre())&&c.getApellido().equals(this.getApellido())){
                 contiene=true;
+                c.setImporte(c.getImporte()+this.importe);
             }
         }
         return contiene;

@@ -25,9 +25,9 @@ public class DividirNombre {
     public List<Hecho> separar_hecho2() {
         try {
             String lines;
-            Hecho h2 = new Hecho();
+            if((lines=bf2.readLine())!=null){}
             while ((lines = bf2.readLine()) != null) {
-                System.out.println(lines);
+                Hecho h2 = new Hecho();
                 parts = lines.split(";");
                 apellidoNombre = parts[0].split(" ");
                 h2.setApellido(apellidoNombre[1]);

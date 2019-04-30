@@ -25,15 +25,19 @@ public class P3Application {
 
 			List<Cliente> clientes = new ArrayList<>();
 			for(Hecho h: hecho1){
-				Cliente cliente = new Cliente(h.getNombre(),h.getApellido(),h.getEmail(),null,h.getDia(),h.getMes(),h.getAnyo());
+				Cliente cliente = new Cliente(h.getNombre(),h.getApellido(),h.getEmail(),null,h.getDia(),h.getMes(),h.getAnyo(),h.getImporte());
 				if(!cliente.contenido(clientes)){
 					clientes.add(cliente);
 					clienteRepo.save(cliente);
 				}
 			}
 			DividirNombre dividirNombre = new DividirNombre();
-			List<Hecho> hecho = dividirNombre.separar_hecho3();
-			for (Hecho h: hecho){
+			List<Hecho> hecho2 = dividirNombre.separar_hecho2();
+			List<Hecho> hecho3 = dividirNombre.separar_hecho3();
+			for (Hecho h: hecho2){
+				hechoRepo.save(h);
+			}
+			for (Hecho h: hecho3){
 				hechoRepo.save(h);
 			}
 		};
