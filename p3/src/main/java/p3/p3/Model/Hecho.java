@@ -7,6 +7,7 @@ public class Hecho {
     @Id
     @GeneratedValue
     private Long id;
+    private Integer idCliente;
     private String nombre;
     private String apellido;
     private String email;
@@ -26,7 +27,8 @@ public class Hecho {
 
     }
 
-    public Hecho(String nombre, String apellido, String email, int dia, String mes, int anyo, String country, String capital, Integer pop, String item, String descripcion, int importe, int valoracion, String fechaPedido) {
+    public Hecho(Integer idCliente, String nombre, String apellido, String email, int dia, String mes, int anyo, String country, String capital, Integer pop, String item, String descripcion, int importe, int valoracion, String fechaPedido) {
+        this.idCliente = idCliente;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
@@ -41,6 +43,14 @@ public class Hecho {
         this.importe = importe;
         this.valoracion = valoracion;
         this.fechaPedido = fechaPedido;
+    }
+
+    public Integer getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(Integer idCliente) {
+        this.idCliente = idCliente;
     }
 
     public Long getId() {
