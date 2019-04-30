@@ -5,22 +5,61 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DividirNombre {
-    
-    List<Hecho3> hechos3 = new ArrayList<>();
 
-    File archivo = new File ("Data/Practica_3_SSII_hechos3.csv");
-    FileReader fr = new FileReader (archivo);
-    BufferedReader bf = new BufferedReader(fr);
+    List<Hecho> hechos2 = new ArrayList<>();
+    List<Hecho> hechos3 = new ArrayList<>();
+
+    File archivo3 = new File ("Data/Practica_3_SSII_hechos3.csv");
+    FileReader fr3 = new FileReader (archivo3);
+    BufferedReader bf3 = new BufferedReader(fr3);
+
+    File archivo2 = new File ("Data/Practica_3_SSII_hechos2.csv");
+    FileReader fr2 = new FileReader (archivo2);
+    BufferedReader bf2 = new BufferedReader(fr2);
 
     String[] parts;
     String[] apellidoNombre;
+    String[] diaMesAnyo;
 
-    public List<Hecho3> separar() {
+
+    public List<Hecho> separar_hecho2() {
         try {
             String lines;
-            if((lines=bf.readLine())!=null){}
-            while ((lines = bf.readLine()) != null) {
-                Hecho3 h3 = new Hecho3();
+            Hecho h2 = new Hecho();
+            while ((lines = bf2.readLine()) != null) {
+                System.out.println(lines);
+                parts = lines.split(";");
+                apellidoNombre = parts[0].split(" ");
+                h2.setApellido(apellidoNombre[1]);
+                h2.setNombre(apellidoNombre[0]);
+                h2.setEmail(parts[1]);
+                diaMesAnyo = parts[2].split(" de ");
+                h2.setDia(Integer.parseInt(diaMesAnyo[0]));
+                h2.setMes(diaMesAnyo[1]);
+                h2.setAnyo(Integer.parseInt(diaMesAnyo[2]));
+                h2.setPais(parts[3]);
+                h2.setCapital(parts[4]);
+                h2.setPoblacion(null);
+                h2.setItem(parts[5]);
+                h2.setDescripcion(parts[6]);
+                h2.setImporte(Integer.parseInt(parts[8]));
+                h2.setValoracion(Integer.parseInt(parts[7]));
+                h2.setFechaPedido(parts[9]);
+                hechos3.add(h2);
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return this.hechos2;
+    }
+
+    public List<Hecho> separar_hecho3() {
+        try {
+            String lines;
+            if((lines=bf3.readLine())!=null){}
+            while ((lines = bf3.readLine()) != null) {
+                Hecho h3 = new Hecho();
                 parts = lines.split(";");
                 apellidoNombre = parts[0].split(",");
                 
