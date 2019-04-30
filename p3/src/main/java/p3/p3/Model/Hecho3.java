@@ -1,43 +1,46 @@
 package p3.p3.Model;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+@Entity
 public class Hecho3 {
     @Id
     @GeneratedValue
     private Long id;
-    @Column(name = "Nombre")
+    @Column
     private String nombre;
-    @Column(name = "Apellido")
+    @Column
     private String apellido;
-    @Column(name = "email")
+    @Column
     private String email;
-    @Column(name = "day")
+    @Column
     private int dia;
-    @Column(name = "month")
+    @Column
     private String mes;
-    @Column(name = "year")
+    @Column
     private int anyo;
-    @Column(name = "Country")
+    @Column
     private String pais;
-    @Column(name = "Capital")
+    @Column
     private String capital;
-    @Column(name = "pop")
+    @Column
     private int poblacion;
-    @Column(name = "item")
+    @Column
     private String item;
-    @Column(name = "descripcion")
+    @Column
     private String descripcion;
-    @Column(name = "Importe")
+    @Column
     private int importe;
-    @Column(name = "valoracion")
+    @Column
     private int valoracion;
-    @Column(name = "FechaPedido")
+    @Column
     private String fechaPedido;
 
-    private Hecho3(String nombre, String apellido, String email, int dia, String mes, int anyo, String country, String capital, int pop, String item, String descripcion, int importe, int valoracion, String fechaPedido) {
+    public Hecho3 (){
+
+    }
+
+    public Hecho3(String nombre, String apellido, String email, int dia, String mes, int anyo, String country, String capital, int pop, String item, String descripcion, int importe, int valoracion, String fechaPedido) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;

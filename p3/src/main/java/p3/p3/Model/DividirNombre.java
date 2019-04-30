@@ -18,7 +18,7 @@ public class DividirNombre {
     public List<Hecho3> separar() {
         try {
             String lines;
-            Hecho3 h3 = null;
+            Hecho3 h3 = new Hecho3();
             while ((lines = bf.readLine()) != null) {
                 System.out.println(lines);
                 parts = lines.split(";");
