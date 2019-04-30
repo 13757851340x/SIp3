@@ -61,7 +61,6 @@ public class Producto {
         for(Producto p:productos){
             if(p.getNombre().equals(this.nombre)){
                 contiene=true;
-                p.setImporte(p.getImporte()+this.importe);
             }
         }
         return contiene;
