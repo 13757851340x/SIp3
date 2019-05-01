@@ -16,10 +16,10 @@ public class Hecho {
     private int anyo;
     private String pais;
     private String capital;
-    private Integer poblacion;
+    private Integer habitantes;
     private String item;
     private String descripcion;
-    private int importe;
+    private Integer importe;
     private int valoracion;
     private String fechaPedido;
 
@@ -27,7 +27,7 @@ public class Hecho {
 
     }
 
-    public Hecho(Integer idCliente, String nombre, String apellido, String email, int dia, String mes, int anyo, String country, String capital, Integer pop, String item, String descripcion, int importe, int valoracion, String fechaPedido) {
+    public Hecho(Integer idCliente, String nombre, String apellido, String email, int dia, String mes, int anyo, String country, String capital, Integer pop, String item, String descripcion, Integer importe, int valoracion, String fechaPedido) {
         this.idCliente = idCliente;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -37,7 +37,7 @@ public class Hecho {
         this.anyo = anyo;
         this.pais = country;
         this.capital = capital;
-        this.poblacion = pop;
+        this.habitantes = pop;
         this.item = item;
         this.descripcion = descripcion;
         this.importe = importe;
@@ -125,12 +125,12 @@ public class Hecho {
         this.capital = capital;
     }
 
-    public Integer getPoblacion() {
-        return poblacion;
+    public Integer getHabitantes() {
+        return habitantes;
     }
 
-    public void setPoblacion(Integer poblacion) {
-        this.poblacion = poblacion;
+    public void setHabitantes(Integer habitantes) {
+        this.habitantes = habitantes;
     }
 
     public String getItem() {
@@ -149,11 +149,11 @@ public class Hecho {
         this.descripcion = descripcion;
     }
 
-    public int getImporte() {
+    public Integer getImporte() {
         return importe;
     }
 
-    public void setImporte(int importe) {
+    public void setImporte(Integer importe) {
         this.importe = importe;
     }
 

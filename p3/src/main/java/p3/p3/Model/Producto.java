@@ -12,7 +12,7 @@ public class Producto {
     private Long id;
     private String nombre;
     private String descripcion;
-    private int importe;
+    private Integer importe;
 
     public Producto (){
 
@@ -42,15 +42,15 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    public int getImporte() {
+    public Integer getImporte() {
         return importe;
     }
 
-    public void setImporte(int importe) {
+    public void setImporte(Integer importe) {
         this.importe = importe;
     }
 
-    public Producto (String nombre, String descripcion, int importe){
+    public Producto (String nombre, String descripcion, Integer importe){
         this.nombre=nombre;
         this.descripcion=descripcion;
         this.importe=importe;
@@ -61,6 +61,7 @@ public class Producto {
         for(Producto p:productos){
             if(p.getNombre().equals(this.nombre)){
                 contiene=true;
+                p.setImporte(p.getImporte()+this.getImporte());
             }
         }
         return contiene;

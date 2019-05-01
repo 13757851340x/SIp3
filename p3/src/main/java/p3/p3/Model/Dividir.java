@@ -4,11 +4,9 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DividirNombre {
+public class Dividir {
 
-    List<Hecho> hechos1 = new ArrayList<>();
-    List<Hecho> hechos2 = new ArrayList<>();
-    List<Hecho> hechos3 = new ArrayList<>();
+    List<Hecho> hechos = new ArrayList<>();
 
     File archivo1 = new File ("Data/Practica_3_SSII_hechos1.csv");
     FileReader fr1 = new FileReader (archivo1);
@@ -29,7 +27,7 @@ public class DividirNombre {
     String[] diaMesAnyo;
 
 
-    public List<Hecho> separar_hecho1() {
+    public void separar_hecho1() {
         try {
             String lines;
             if((lines=bf1.readLine())!=null){}
@@ -45,22 +43,21 @@ public class DividirNombre {
                 h1.setAnyo(Integer.parseInt(parts[6]));
                 h1.setPais(null);
                 h1.setCapital(parts[7]);
-                h1.setPoblacion(null);
+                h1.setHabitantes(null);
                 h1.setItem(parts[8]);
                 h1.setDescripcion(parts[9]);
                 h1.setImporte(Integer.parseInt(parts[10]));
                 h1.setValoracion(Integer.parseInt(parts[11]));
                 h1.setFechaPedido(parts[12]);
-                hechos1.add(h1);
+                hechos.add(h1);
 
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return this.hechos1;
     }
 
-    public List<Hecho> separar_hecho2() {
+    public void separar_hecho2() {
         try {
             String lines;
             if((lines=bf2.readLine())!=null){}
@@ -77,22 +74,21 @@ public class DividirNombre {
                 h2.setAnyo(Integer.parseInt(diaMesAnyo[2]));
                 h2.setPais(parts[3]);
                 h2.setCapital(parts[4]);
-                h2.setPoblacion(null);
+                h2.setHabitantes(null);
                 h2.setItem(parts[5]);
                 h2.setDescripcion(parts[6]);
                 h2.setImporte(Integer.parseInt(parts[8]));
                 h2.setValoracion(Integer.parseInt(parts[7]));
                 h2.setFechaPedido(parts[9]);
-                hechos2.add(h2);
+                hechos.add(h2);
 
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return this.hechos2;
     }
 
-    public List<Hecho> separar_hecho3() {
+    public void separar_hecho3() {
         try {
             String lines;
             if((lines=bf3.readLine())!=null){}
@@ -109,25 +105,26 @@ public class DividirNombre {
                 h3.setAnyo(Integer.parseInt(parts[4]));
                 h3.setPais(parts[5]);
                 h3.setCapital(parts[6]);
-                h3.setPoblacion(Integer.parseInt(parts[7]));
+                h3.setHabitantes(Integer.parseInt(parts[7]));
                 h3.setItem(parts[8]);
                 h3.setDescripcion(parts[9]);
                 h3.setImporte(Integer.parseInt(parts[10]));
                 h3.setValoracion(Integer.parseInt(parts[11]));
                 h3.setFechaPedido(parts[12]);
-                hechos3.add(h3);
+                hechos.add(h3);
 
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return this.hechos3;
     }
 
-    public DividirNombre() throws FileNotFoundException, IOException {
+    public Dividir() throws FileNotFoundException, IOException {
     }
 
-
+    public List<Hecho> getHechos(){
+        return this.hechos;
+    }
 
 
 }

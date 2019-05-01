@@ -15,13 +15,13 @@ public class Cliente {
     private int dia;
     private String mes;
     private int anyo;
-    private int importe;
+    private Integer importe;
 
    public Cliente(){
 
    }
 
-    public Cliente(String nombre, String apellido, String email, String dominio, int dia, String mes, int anyo,int importe) {
+    public Cliente(String nombre, String apellido, String email, String dominio, int dia, String mes, int anyo,Integer importe) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
@@ -96,12 +96,12 @@ public class Cliente {
         this.anyo = anyo;
     }
 
-    public int getImporte() {
+    public Integer getImporte() {
         return importe;
     }
 
-    public void setImporte(int importe) {
-        this.importe = importe;
+    public Integer setImporte(Integer importe) {
+        return this.importe = importe;
     }
 
     public boolean contenido(List<Cliente> clientes){
