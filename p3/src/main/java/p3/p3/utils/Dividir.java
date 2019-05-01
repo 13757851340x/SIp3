@@ -1,6 +1,7 @@
-package p3.p3.Model;
+package p3.p3.utils;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import p3.p3.Model.Compra;
 import p3.p3.Repository.LugarRepo;
 
 import java.io.*;
@@ -25,8 +26,6 @@ public class Dividir {
 
 
     String[] parts;
-    String[] apellidoNombre;
-    String[] diaMesAnyo;
 
 
     public void separar_hecho1() {
@@ -68,11 +67,11 @@ public class Dividir {
             while ((lines = bf2.readLine()) != null) {
                 Compra c2 = new Compra();
                 parts = lines.split(";");
-                apellidoNombre = parts[0].split(" ");
+                String[] apellidoNombre = parts[0].split(" ");
                 c2.setApellido(apellidoNombre[1]);
                 c2.setNombre(apellidoNombre[0]);
                 c2.setEmail(parts[1]);
-                diaMesAnyo = parts[2].split(" de ");
+                String[] diaMesAnyo = parts[2].split(" de ");
                 c2.setDia(Integer.parseInt(diaMesAnyo[0]));
                 c2.setMes(diaMesAnyo[1]);
                 c2.setAnyo(Integer.parseInt(diaMesAnyo[2]));
@@ -100,7 +99,7 @@ public class Dividir {
             while ((lines = bf3.readLine()) != null) {
                 Compra c3 = new Compra();
                 parts = lines.split(";");
-                apellidoNombre = parts[0].split(",");
+                String[] apellidoNombre = parts[0].split(",");
 
                 c3.setApellido(apellidoNombre[0]);
                 c3.setNombre(apellidoNombre[1].substring(1));

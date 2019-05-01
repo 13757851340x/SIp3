@@ -15,13 +15,12 @@ public class Cliente {
     private int dia;
     private String mes;
     private int anyo;
-    private Integer importe;
 
    public Cliente(){
 
    }
 
-    public Cliente(String nombre, String apellido, String email, String dominio, int dia, String mes, int anyo,Integer importe) {
+    public Cliente(String nombre, String apellido, String email, String dominio, int dia, String mes, int anyo) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
@@ -29,7 +28,6 @@ public class Cliente {
         this.dia = dia;
         this.mes = mes;
         this.anyo = anyo;
-        this.importe=importe;
     }
 
     public Long getId() {
@@ -96,20 +94,11 @@ public class Cliente {
         this.anyo = anyo;
     }
 
-    public Integer getImporte() {
-        return importe;
-    }
-
-    public Integer setImporte(Integer importe) {
-        return this.importe = importe;
-    }
-
     public boolean contenido(List<Cliente> clientes){
         boolean contiene = false;
         for(Cliente c: clientes){
             if(c.getNombre().equals(this.getNombre())&&c.getApellido().equals(this.getApellido())){
                 contiene=true;
-                c.setImporte(c.getImporte()+this.importe);
             }
         }
         return contiene;

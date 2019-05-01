@@ -11,17 +11,15 @@ public class Lugar {
     private String capital;
     private String pais;
     private Integer habitantes;
-    private Integer importe;
 
     public Lugar() {
 
     }
 
-    public Lugar(String capital, String pais, Integer habitantes, Integer importe) {
+    public Lugar(String capital, String pais, Integer habitantes) {
         this.capital = capital;
         this.pais = pais;
         this.habitantes = habitantes;
-        this.importe = importe;
     }
 
     public Long getId() {
@@ -56,13 +54,7 @@ public class Lugar {
         this.habitantes = habitantes;
     }
 
-    public Integer getImporte() {
-        return importe;
-    }
 
-    public void setImporte(Integer importe) {
-        this.importe = importe;
-    }
 
     public boolean contenido(List<Lugar> lugares) {
         boolean contiene = false;
@@ -75,7 +67,6 @@ public class Lugar {
                     l.setHabitantes(this.habitantes);
                 }
                 contiene = true;
-                l.setImporte(l.getImporte()+this.importe);
             }
         }
         return contiene;

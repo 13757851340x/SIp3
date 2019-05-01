@@ -6,6 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import p3.p3.utils.Dividir;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,14 +39,12 @@ public class P3Application {
 
             List<Cliente> clientes = new ArrayList<>();
             for (Compra c : compra) {
-                Cliente cliente = new Cliente(c.getNombre(), c.getApellido(), c.getEmail(), null, c.getDia(), c.getMes(), c.getAnyo(), c.getImporte());
+                Cliente cliente = new Cliente(c.getNombre(), c.getApellido(), c.getEmail(), null, c.getDia(), c.getMes(), c.getAnyo());
                 if (!cliente.contenido(clientes)) {
                     clientes.add(cliente);
                 }
-                for (Cliente cl:clientes){
-                    clienteRepo.save(cl);
-                }
             }
+            clienteRepo.saveAll(clientes);
 
             List<Producto> productos = new ArrayList<>();
             for (Compra c : compra) {
@@ -53,46 +52,28 @@ public class P3Application {
                 if (!producto.contenido(productos)) {
                     productos.add(producto);
                 }
-                for(Producto p:productos){
-                    productoRepo.save(p);
-                }
             }
+            productoRepo.saveAll(productos);
 
             List<Lugar> lugares = new ArrayList<>();
             for (Compra c : compra) {
-                Lugar lugar = new Lugar(c.getCapital(), c.getPais(), c.getHabitantes(), c.getImporte());
+                Lugar lugar = new Lugar(c.getCapital(), c.getPais(), c.getHabitantes());
                 if (!lugar.contenido(lugares)) {
                     lugares.add(lugar);
                 }
             }
-            for (Lugar l: lugares){
-                lugarRepo.save(l);
-            }
+            lugarRepo.saveAll(lugares);
 
             List<Tiempo> tiempos = new ArrayList<>();
             for (Compra c : compra) {
-                Tiempo tiempo = new Tiempo(c.getDia(),c.getMes(),c.getAnyo(),c.getImporte());
+                String[] fecha = c.getFechaPedido().split("/");
+                Tiempo tiempo = new Tiempo(Integer.parseInt(fecha[0]),Integer.parseInt(fecha[1]),Integer.parseInt(fecha[2]));
                 if (!tiempo.contenido(tiempos)) {
                     tiempos.add(tiempo);
                 }
-                for(Tiempo t:tiempos){
-                    tiempoRepo.save(t);
-                }
             }
+            tiempoRepo.saveAll(tiempos);
 
-            for(Compra c: compraRepo.findAll()){
-                for(Lugar l:lugarRepo.findAll()){
-                    if(c.getCapital().equals(l.getCapital())){
-                        if(c.getPais()==null){
-                            c.setPais(l.getPais());
-                        }
-                        if(c.getHabitantes()==null){
-                            c.setHabitantes(l.getHabitantes());
-                        }
-                    }
-                    compraRepo.save(c);
-                }
-            }
         };
     }
 }

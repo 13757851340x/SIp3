@@ -12,18 +12,16 @@ public class Tiempo {
     private String nomMes;
     private int numMes;
     private int anyo;
-    private Integer importe;
 
     public Tiempo (){
 
     }
 
-    public Tiempo(int dia, String nomMes, int anyo, Integer importe) {
+    public Tiempo(int dia, int numMes, int anyo) {
         this.dia = dia;
-        this.nomMes = nomMes;
-        this.numMes = this.toNum();
+        this.nomMes =this.toNom();
+        this.numMes = numMes;
         this.anyo = anyo;
-        this.importe = importe;
     }
 
     public Long getId() {
@@ -66,52 +64,43 @@ public class Tiempo {
         this.anyo = anyo;
     }
 
-    public Integer getImporte() {
-        return importe;
-    }
-
-    public void setImporte(Integer importe) {
-        this.importe = importe;
-    }
-
     public boolean contenido(List<Tiempo> tiempos){
         boolean contiene = false;
         for(Tiempo t: tiempos){
             if((t.getDia()==this.getDia())&&(t.getNumMes()==this.getNumMes())&&(t.getAnyo()==this.getAnyo())){
                 contiene=true;
-                t.setImporte(t.getImporte()+this.importe);
             }
         }
         return contiene;
     }
 
-    private int toNum(){
-        switch (this.nomMes) {
-            case "enero":
-                return 1;
-            case "febrero":
-                return 2;
-            case "marzo":
-                return 3;
-            case "abril":
-                return 4;
-            case "mayo":
-                return 5;
-            case "junio":
-                return 6;
-            case "julio":
-                return 7;
-            case "agosto":
-                return 8;
-            case "septiembre":
-                return 9;
-            case "octubre":
-                return 10;
-            case "novbiembre":
-                return 11;
-            case "diciembre":
-                return 12;
+    private String toNom(){
+        switch (this.numMes) {
+            case 1:
+                return "enero";
+            case 2:
+                return "febrero";
+            case 3:
+                return "marzo";
+            case 4:
+                return "abril";
+            case 5:
+                return "mayo";
+            case 6:
+                return "junio";
+            case 7:
+                return "julio";
+            case 8:
+                return "agosto";
+            case 9:
+                return "septiembre";
+            case 10:
+                return "octubre";
+            case 11:
+                return "novbiembre";
+            case 12:
+                return "diciembre";
         }
-        return 0;
+        return "error";
     }
 }
