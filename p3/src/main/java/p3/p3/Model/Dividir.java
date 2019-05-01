@@ -1,12 +1,15 @@
 package p3.p3.Model;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import p3.p3.Repository.LugarRepo;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Dividir {
 
-    List<Compra> hechos = new ArrayList<>();
+    List<Compra> compras = new ArrayList<>();
 
     File archivo1 = new File("Data/Practica_3_SSII_hechos1.csv");
     FileReader fr1 = new FileReader(archivo1);
@@ -34,7 +37,7 @@ public class Dividir {
             while ((lines = bf1.readLine()) != null) {
                 Compra c1 = new Compra();
                 parts = lines.split(";");
-                c1.setIdCompra(Integer.parseInt(parts[0]));
+                c1.setId(Integer.parseInt(parts[0]));
                 c1.setApellido(parts[2]);
                 c1.setNombre(parts[1]);
                 c1.setEmail(parts[3]);
@@ -49,7 +52,7 @@ public class Dividir {
                 c1.setImporte(Integer.parseInt(parts[10]));
                 c1.setValoracion(Integer.parseInt(parts[11]));
                 c1.setFechaPedido(parts[12]);
-                hechos.add(c1);
+                compras.add(c1);
 
             }
         } catch (IOException e) {
@@ -81,7 +84,7 @@ public class Dividir {
                 c2.setImporte(Integer.parseInt(parts[8]));
                 c2.setValoracion(Integer.parseInt(parts[7]));
                 c2.setFechaPedido(parts[9]);
-                hechos.add(c2);
+                compras.add(c2);
 
             }
         } catch (IOException e) {
@@ -113,7 +116,7 @@ public class Dividir {
                 c3.setImporte(Integer.parseInt(parts[10]));
                 c3.setValoracion(Integer.parseInt(parts[11]));
                 c3.setFechaPedido(parts[12]);
-                hechos.add(c3);
+                compras.add(c3);
 
             }
         } catch (IOException e) {
@@ -121,11 +124,12 @@ public class Dividir {
         }
     }
 
+
     public Dividir() throws FileNotFoundException, IOException {
     }
 
-    public List<Compra> getHechos() {
-        return this.hechos;
+    public List<Compra> getCompras() {
+        return this.compras;
     }
 
     private String toMonth(String mes) {

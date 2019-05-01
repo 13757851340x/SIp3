@@ -6,8 +6,7 @@ import javax.persistence.*;
 public class Compra {
     @Id
     @GeneratedValue
-    private Long id;
-    private Integer idCompra;
+    private int id;
     private String nombre;
     private String apellido;
     private String email;
@@ -27,8 +26,7 @@ public class Compra {
 
     }
 
-    public Compra(Integer idCompra, String nombre, String apellido, String email, int dia, String mes, int anyo, String country, String capital, Integer pop, String item, String descripcion, Integer importe, int valoracion, String fechaPedido) {
-        this.idCompra = idCompra;
+    public Compra(String nombre, String apellido, String email, int dia, String mes, int anyo, String country, String capital, Integer pop, String item, String descripcion, Integer importe, int valoracion, String fechaPedido) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
@@ -45,19 +43,12 @@ public class Compra {
         this.fechaPedido = fechaPedido;
     }
 
-    public Integer getIdCompra() {
-        return idCompra;
-    }
 
-    public void setIdCompra(Integer idCompra) {
-        this.idCompra = idCompra;
-    }
-
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

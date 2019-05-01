@@ -18,9 +18,9 @@ public class P3Application {
     }
 
     @Bean
-    public CommandLineRunner addData(CompraRepo hechoRepo, ClienteRepo clienteRepo, ProductoRepo productoRepo, LugarRepo lugarRepo, TiempoRepo tiempoRepo) {
+    public CommandLineRunner addData(CompraRepo compraRepo, ClienteRepo clienteRepo, ProductoRepo productoRepo, LugarRepo lugarRepo, TiempoRepo tiempoRepo) {
         return (args) -> {
-            hechoRepo.deleteAll();
+            compraRepo.deleteAll();
             clienteRepo.deleteAll();
             productoRepo.deleteAll();
             lugarRepo.deleteAll();
@@ -29,15 +29,15 @@ public class P3Application {
             dividirNombre.separar_hecho1();
             dividirNombre.separar_hecho2();
             dividirNombre.separar_hecho3();
-            List<Compra> hechos = dividirNombre.getHechos();
+            List<Compra> hechos = dividirNombre.getCompras();
             for (Compra h : hechos) {
-                hechoRepo.save(h);
+                compraRepo.save(h);
             }
 
-            List<Compra> hecho = hechoRepo.findAllByOrderByNombre();
+            List<Compra> compra = compraRepo.findAll();
 
             List<Cliente> clientes = new ArrayList<>();
-            for (Compra c : hecho) {
+            for (Compra c : compra) {
                 Cliente cliente = new Cliente(c.getNombre(), c.getApellido(), c.getEmail(), null, c.getDia(), c.getMes(), c.getAnyo(), c.getImporte());
                 if (!cliente.contenido(clientes)) {
                     clientes.add(cliente);
@@ -48,7 +48,7 @@ public class P3Application {
             }
 
             List<Producto> productos = new ArrayList<>();
-            for (Compra c : hecho) {
+            for (Compra c : compra) {
                 Producto producto = new Producto(c.getItem(), c.getDescripcion(), c.getImporte());
                 if (!producto.contenido(productos)) {
                     productos.add(producto);
@@ -59,7 +59,7 @@ public class P3Application {
             }
 
             List<Lugar> lugares = new ArrayList<>();
-            for (Compra c : hecho) {
+            for (Compra c : compra) {
                 Lugar lugar = new Lugar(c.getCapital(), c.getPais(), c.getHabitantes(), c.getImporte());
                 if (!lugar.contenido(lugares)) {
                     lugares.add(lugar);
@@ -70,13 +70,27 @@ public class P3Application {
             }
 
             List<Tiempo> tiempos = new ArrayList<>();
-            for (Compra c : hecho) {
+            for (Compra c : compra) {
                 Tiempo tiempo = new Tiempo(c.getDia(),c.getMes(),c.getAnyo(),c.getImporte());
                 if (!tiempo.contenido(tiempos)) {
                     tiempos.add(tiempo);
                 }
                 for(Tiempo t:tiempos){
                     tiempoRepo.save(t);
+                }
+            }
+
+            for(Compra c: compraRepo.findAll()){
+                for(Lugar l:lugarRepo.findAll()){
+                    if(c.getCapital().equals(l.getCapital())){
+                        if(c.getPais()==null){
+                            c.setPais(l.getPais());
+                        }
+                        if(c.getHabitantes()==null){
+                            c.setHabitantes(l.getHabitantes());
+                        }
+                    }
+                    compraRepo.save(c);
                 }
             }
         };

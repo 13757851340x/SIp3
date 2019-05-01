@@ -8,5 +8,5 @@ import java.util.List;
 
 
 public interface CompraRepo extends JpaRepository<Compra,Long> {
-    List<Compra> findAllByOrderByNombre();
+    List<Compra> findAll();
 }
