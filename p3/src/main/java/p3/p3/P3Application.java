@@ -1,14 +1,11 @@
 package p3.p3;
 
 import p3.p3.Model.*;
-import p3.p3.Repository.ClienteRepo;
-import p3.p3.Repository.HechoRepo;
+import p3.p3.Repository.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import p3.p3.Repository.LugarRepo;
-import p3.p3.Repository.ProductoRepo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,37 +18,38 @@ public class P3Application {
     }
 
     @Bean
-    public CommandLineRunner addData(HechoRepo hechoRepo, ClienteRepo clienteRepo, ProductoRepo productoRepo, LugarRepo lugarRepo) {
+    public CommandLineRunner addData(CompraRepo hechoRepo, ClienteRepo clienteRepo, ProductoRepo productoRepo, LugarRepo lugarRepo, TiempoRepo tiempoRepo) {
         return (args) -> {
             hechoRepo.deleteAll();
             clienteRepo.deleteAll();
             productoRepo.deleteAll();
             lugarRepo.deleteAll();
+            tiempoRepo.deleteAll();
             Dividir dividirNombre = new Dividir();
             dividirNombre.separar_hecho1();
             dividirNombre.separar_hecho2();
             dividirNombre.separar_hecho3();
-            List<Hecho> hechos = dividirNombre.getHechos();
-            for (Hecho h : hechos) {
+            List<Compra> hechos = dividirNombre.getHechos();
+            for (Compra h : hechos) {
                 hechoRepo.save(h);
             }
 
-            List<Hecho> hecho = hechoRepo.findAllByOrderByNombre();
+            List<Compra> hecho = hechoRepo.findAllByOrderByNombre();
 
             List<Cliente> clientes = new ArrayList<>();
-            for (Hecho h : hecho) {
-                Cliente cliente = new Cliente(h.getNombre(), h.getApellido(), h.getEmail(), null, h.getDia(), h.getMes(), h.getAnyo(), h.getImporte());
+            for (Compra c : hecho) {
+                Cliente cliente = new Cliente(c.getNombre(), c.getApellido(), c.getEmail(), null, c.getDia(), c.getMes(), c.getAnyo(), c.getImporte());
                 if (!cliente.contenido(clientes)) {
                     clientes.add(cliente);
                 }
-                for (Cliente c:clientes){
-                    clienteRepo.save(c);
+                for (Cliente cl:clientes){
+                    clienteRepo.save(cl);
                 }
             }
 
             List<Producto> productos = new ArrayList<>();
-            for (Hecho h : hecho) {
-                Producto producto = new Producto(h.getItem(), h.getDescripcion(), h.getImporte());
+            for (Compra c : hecho) {
+                Producto producto = new Producto(c.getItem(), c.getDescripcion(), c.getImporte());
                 if (!producto.contenido(productos)) {
                     productos.add(producto);
                 }
@@ -61,14 +59,25 @@ public class P3Application {
             }
 
             List<Lugar> lugares = new ArrayList<>();
-            for (Hecho h : hecho) {
-                Lugar lugar = new Lugar(h.getCapital(), h.getPais(), h.getHabitantes(), h.getImporte());
+            for (Compra c : hecho) {
+                Lugar lugar = new Lugar(c.getCapital(), c.getPais(), c.getHabitantes(), c.getImporte());
                 if (!lugar.contenido(lugares)) {
                     lugares.add(lugar);
                 }
             }
             for (Lugar l: lugares){
                 lugarRepo.save(l);
+            }
+
+            List<Tiempo> tiempos = new ArrayList<>();
+            for (Compra c : hecho) {
+                Tiempo tiempo = new Tiempo(c.getDia(),c.getMes(),c.getAnyo(),c.getImporte());
+                if (!tiempo.contenido(tiempos)) {
+                    tiempos.add(tiempo);
+                }
+                for(Tiempo t:tiempos){
+                    tiempoRepo.save(t);
+                }
             }
         };
     }
