@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface LugarRepo extends JpaRepository<Lugar,Long> {
     List<Lugar> findAll();
+    Lugar findByCapital(String capital);
 }

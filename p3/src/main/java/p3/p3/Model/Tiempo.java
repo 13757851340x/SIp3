@@ -19,8 +19,8 @@ public class Tiempo {
 
     public Tiempo(int dia, int numMes, int anyo) {
         this.dia = dia;
-        this.nomMes =this.toNom();
         this.numMes = numMes;
+        this.nomMes =this.toNom();
         this.anyo = anyo;
     }
 

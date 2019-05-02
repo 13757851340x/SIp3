@@ -1,16 +1,14 @@
 package p3.p3.utils;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import p3.p3.Model.Compra;
-import p3.p3.Repository.LugarRepo;
+import p3.p3.Model.DataTable;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Dividir {
+public class Wrapper {
 
-    List<Compra> compras = new ArrayList<>();
+    List<DataTable> dataTables = new ArrayList<>();
 
     File archivo1 = new File("Data/Practica_3_SSII_hechos1.csv");
     FileReader fr1 = new FileReader(archivo1);
@@ -34,7 +32,7 @@ public class Dividir {
             if ((lines = bf1.readLine()) != null) {
             }
             while ((lines = bf1.readLine()) != null) {
-                Compra c1 = new Compra();
+                DataTable c1 = new DataTable();
                 parts = lines.split(";");
                 c1.setId(Integer.parseInt(parts[0]));
                 c1.setApellido(parts[2]);
@@ -51,7 +49,7 @@ public class Dividir {
                 c1.setImporte(Integer.parseInt(parts[10]));
                 c1.setValoracion(Integer.parseInt(parts[11]));
                 c1.setFechaPedido(parts[12]);
-                compras.add(c1);
+                dataTables.add(c1);
 
             }
         } catch (IOException e) {
@@ -65,7 +63,7 @@ public class Dividir {
             if ((lines = bf2.readLine()) != null) {
             }
             while ((lines = bf2.readLine()) != null) {
-                Compra c2 = new Compra();
+                DataTable c2 = new DataTable();
                 parts = lines.split(";");
                 String[] apellidoNombre = parts[0].split(" ");
                 c2.setApellido(apellidoNombre[1]);
@@ -83,7 +81,7 @@ public class Dividir {
                 c2.setImporte(Integer.parseInt(parts[8]));
                 c2.setValoracion(Integer.parseInt(parts[7]));
                 c2.setFechaPedido(parts[9]);
-                compras.add(c2);
+                dataTables.add(c2);
 
             }
         } catch (IOException e) {
@@ -97,7 +95,7 @@ public class Dividir {
             if ((lines = bf3.readLine()) != null) {
             }
             while ((lines = bf3.readLine()) != null) {
-                Compra c3 = new Compra();
+                DataTable c3 = new DataTable();
                 parts = lines.split(";");
                 String[] apellidoNombre = parts[0].split(",");
 
@@ -115,7 +113,7 @@ public class Dividir {
                 c3.setImporte(Integer.parseInt(parts[10]));
                 c3.setValoracion(Integer.parseInt(parts[11]));
                 c3.setFechaPedido(parts[12]);
-                compras.add(c3);
+                dataTables.add(c3);
 
             }
         } catch (IOException e) {
@@ -124,11 +122,11 @@ public class Dividir {
     }
 
 
-    public Dividir() throws FileNotFoundException, IOException {
+    public Wrapper() throws FileNotFoundException, IOException {
     }
 
-    public List<Compra> getCompras() {
-        return this.compras;
+    public List<DataTable> getDataTables() {
+        return this.dataTables;
     }
 
     private String toMonth(String mes) {

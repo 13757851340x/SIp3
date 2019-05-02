@@ -11,7 +11,6 @@ public class Cliente {
     private String nombre;
     private String apellido;
     private String email;
-    private String dominio;
     private int dia;
     private String mes;
     private int anyo;
@@ -20,11 +19,10 @@ public class Cliente {
 
    }
 
-    public Cliente(String nombre, String apellido, String email, String dominio, int dia, String mes, int anyo) {
+    public Cliente(String nombre, String apellido, String email, int dia, String mes, int anyo) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
-        this.dominio = dominio;
         this.dia = dia;
         this.mes = mes;
         this.anyo = anyo;
@@ -60,14 +58,6 @@ public class Cliente {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getDominio() {
-        return dominio;
-    }
-
-    public void setDominio(String dominio) {
-        this.dominio = dominio;
     }
 
     public int getDia() {

@@ -7,42 +7,27 @@ public class Compra {
     @Id
     @GeneratedValue
     private int id;
-    private String nombre;
-    private String apellido;
-    private String email;
-    private int dia;
-    private String mes;
-    private int anyo;
-    private String pais;
-    private String capital;
-    private Integer habitantes;
-    private String item;
-    private String descripcion;
-    private Integer importe;
+    @ManyToOne
+    private Lugar lugar;
+    @ManyToOne
+    private Tiempo tiempo;
+    @ManyToOne
+    private Cliente cliente;
+    @ManyToOne
+    private Producto producto;
     private int valoracion;
-    private String fechaPedido;
 
     public Compra(){
 
     }
 
-    public Compra(String nombre, String apellido, String email, int dia, String mes, int anyo, String country, String capital, Integer pop, String item, String descripcion, Integer importe, int valoracion, String fechaPedido) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.email = email;
-        this.dia = dia;
-        this.mes = mes;
-        this.anyo = anyo;
-        this.pais = country;
-        this.capital = capital;
-        this.habitantes = pop;
-        this.item = item;
-        this.descripcion = descripcion;
-        this.importe = importe;
+    public Compra(Lugar lugar, Tiempo tiempo, Cliente cliente, Producto producto, int valoracion) {
+        this.lugar = lugar;
+        this.cliente = cliente;
+        this.tiempo=tiempo;
+        this.producto = producto;
         this.valoracion = valoracion;
-        this.fechaPedido = fechaPedido;
     }
-
 
     public int getId() {
         return id;
@@ -52,100 +37,36 @@ public class Compra {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public Lugar getLugar() {
+        return lugar;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setLugar(Lugar lugar) {
+        this.lugar = lugar;
     }
 
-    public String getApellido() {
-        return apellido;
+    public Tiempo getTiempo() {
+        return tiempo;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setTiempo(Tiempo tiempo) {
+        this.tiempo = tiempo;
     }
 
-    public String getEmail() {
-        return email;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
-    public int getDia() {
-        return dia;
+    public Producto getProducto() {
+        return producto;
     }
 
-    public void setDia(int dia) {
-        this.dia = dia;
-    }
-
-    public String getMes() {
-        return mes;
-    }
-
-    public void setMes(String mes) {
-        this.mes = mes;
-    }
-
-    public int getAnyo() {
-        return anyo;
-    }
-
-    public void setAnyo(int anyo) {
-        this.anyo = anyo;
-    }
-
-    public String getPais() {
-        return pais;
-    }
-
-    public void setPais(String pais) {
-        this.pais = pais;
-    }
-
-    public String getCapital() {
-        return capital;
-    }
-
-    public void setCapital(String capital) {
-        this.capital = capital;
-    }
-
-    public Integer getHabitantes() {
-        return habitantes;
-    }
-
-    public void setHabitantes(Integer habitantes) {
-        this.habitantes = habitantes;
-    }
-
-    public String getItem() {
-        return item;
-    }
-
-    public void setItem(String item) {
-        this.item = item;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public Integer getImporte() {
-        return importe;
-    }
-
-    public void setImporte(Integer importe) {
-        this.importe = importe;
+    public void setProducto(Producto producto) {
+        this.producto = producto;
     }
 
     public int getValoracion() {
@@ -154,13 +75,5 @@ public class Compra {
 
     public void setValoracion(int valoracion) {
         this.valoracion = valoracion;
-    }
-
-    public String getFechaPedido() {
-        return fechaPedido;
-    }
-
-    public void setFechaPedido(String fechaPedido) {
-        this.fechaPedido = fechaPedido;
     }
 }

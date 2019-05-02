@@ -1,12 +1,10 @@
 package p3.p3.Repository;
 
-
-import p3.p3.Model.Compra;
 import org.springframework.data.jpa.repository.JpaRepository;
+import p3.p3.Model.Compra;
 
 import java.util.List;
 
-
-public interface CompraRepo extends JpaRepository<Compra,Long> {
+public interface CompraRepo extends JpaRepository<Compra,Integer> {
     List<Compra> findAll();
 }
