@@ -1,6 +1,6 @@
-package p3.p3.repository;
+package p3.p3.Repository;
 
-import p3.p3.model.Producto;
+import p3.p3.Model.Producto;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProductoRepo extends JpaRepository<Producto,Long> {

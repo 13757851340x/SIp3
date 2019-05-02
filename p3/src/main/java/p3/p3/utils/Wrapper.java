@@ -1,6 +1,6 @@
 package p3.p3.utils;
 
-import p3.p3.Model.DataTable;
+import p3.p3.model.DataTable;
 
 import java.io.*;
 import java.util.ArrayList;
