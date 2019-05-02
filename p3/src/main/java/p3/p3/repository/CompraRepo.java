@@ -1,7 +1,7 @@
-package p3.p3.Repository;
+package p3.p3.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import p3.p3.Model.Compra;
+import p3.p3.model.Compra;
 
 import java.util.List;
 

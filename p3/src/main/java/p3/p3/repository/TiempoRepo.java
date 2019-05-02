@@ -1,8 +1,11 @@
-package p3.p3.Repository;
+package p3.p3.repository;
 
-import p3.p3.Model.Tiempo;
+import p3.p3.model.Tiempo;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
+
 public interface TiempoRepo extends JpaRepository<Tiempo,Long> {
+    List<Tiempo> findAll();
     Tiempo findByDiaAndNumMesAndAnyo(int d,int m,int y);
 }
