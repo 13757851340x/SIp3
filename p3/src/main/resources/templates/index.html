@@ -3,47 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>title</title>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
     <link rel="stylesheet" type="text/css"
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/material-dashboard.css"/>
+
+
 </head>
 <body>
 
-<ul class="nav nav-pills nav-pills-primary" role="tablist">
-    <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#link1" role="tablist" aria-expanded="true">
-            Compras
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#link2" role="tablist" aria-expanded="false">
-            Clientes
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#link3" role="tablist" aria-expanded="false">
-            Lugares
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#link4" role="tablist" aria-expanded="false">
-            Tiempos
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#link5" role="tablist" aria-expanded="false">
-            Productos
-        </a>
-    </li>
-</ul>
-<div class="tab-content tab-space">
-    {{>compra}}
-    {{>cliente}}
-    {{>lugar}}
-    {{>tiempo}}
-    {{>producto}}
-</div>
+{{#tabla}}
+{{>table}}
+{{/tabla}}
+{{^tabla}}
+{{>charts}}
+{{/tabla}}
 
 <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
 <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>

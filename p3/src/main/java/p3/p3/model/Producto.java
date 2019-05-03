@@ -11,9 +11,17 @@ public class Producto {
     private String nombre;
     private String descripcion;
     private Integer importe;
+    private int importeTotal;
 
     public Producto (){
 
+    }
+
+    public Producto (String nombre, String descripcion, Integer importe,int importeTotal){
+        this.nombre=nombre;
+        this.descripcion=descripcion;
+        this.importe=importe;
+        this.importeTotal=importeTotal;
     }
 
     public Long getId() {
@@ -48,10 +56,12 @@ public class Producto {
         this.importe = importe;
     }
 
-    public Producto (String nombre, String descripcion, Integer importe){
-        this.nombre=nombre;
-        this.descripcion=descripcion;
-        this.importe=importe;
+    public int getImporteTotal() {
+        return importeTotal;
+    }
+
+    public void setImporteTotal(int importeTotal) {
+        this.importeTotal = importeTotal;
     }
 
     public boolean contenido (List<Producto> productos){
@@ -59,6 +69,7 @@ public class Producto {
         for(Producto p:productos){
             if(p.getNombre().equals(this.nombre)){
                 contiene=true;
+                p.setImporteTotal(p.getImporteTotal()+this.getImporteTotal());
             }
         }
         return contiene;

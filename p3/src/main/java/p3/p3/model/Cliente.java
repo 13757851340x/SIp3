@@ -14,18 +14,20 @@ public class Cliente {
     private int dia;
     private String mes;
     private int anyo;
+    private int importeTotal;
 
    public Cliente(){
 
    }
 
-    public Cliente(String nombre, String apellido, String email, int dia, String mes, int anyo) {
+    public Cliente(String nombre, String apellido, String email, int dia, String mes, int anyo,int importeTotal) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
         this.dia = dia;
         this.mes = mes;
         this.anyo = anyo;
+        this.importeTotal=importeTotal;
     }
 
     public Long getId() {
@@ -84,11 +86,20 @@ public class Cliente {
         this.anyo = anyo;
     }
 
+    public int getImporteTotal() {
+        return importeTotal;
+    }
+
+    public void setImporteTotal(int importeTotal) {
+        this.importeTotal = importeTotal;
+    }
+
     public boolean contenido(List<Cliente> clientes){
         boolean contiene = false;
         for(Cliente c: clientes){
             if(c.getNombre().equals(this.getNombre())&&c.getApellido().equals(this.getApellido())){
                 contiene=true;
+                c.setImporteTotal(c.getImporteTotal()+this.getImporteTotal());
             }
         }
         return contiene;

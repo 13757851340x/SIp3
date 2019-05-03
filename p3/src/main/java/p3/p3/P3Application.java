@@ -43,20 +43,20 @@ public class P3Application {
             List<Lugar> lugares = new ArrayList<>();
             List<Tiempo> tiempos = new ArrayList<>();
             for (DataTable d : dataTable) {
-                Cliente cliente = new Cliente(d.getNombre(), d.getApellido(), d.getEmail(), d.getDia(), d.getMes(), d.getAnyo());
+                Cliente cliente = new Cliente(d.getNombre(), d.getApellido(), d.getEmail(), d.getDia(), d.getMes(), d.getAnyo(),d.getImporte());
                 if (!cliente.contenido(clientes)) {
                     clientes.add(cliente);
                 }
-                Producto producto = new Producto(d.getItem(), d.getDescripcion(), d.getImporte());
+                Producto producto = new Producto(d.getItem(), d.getDescripcion(), d.getImporte(),d.getImporte());
                 if (!producto.contenido(productos)) {
                     productos.add(producto);
                 }
-                Lugar lugar = new Lugar(d.getCapital(), d.getPais(), d.getHabitantes());
+                Lugar lugar = new Lugar(d.getCapital(), d.getPais(), d.getHabitantes(),d.getImporte());
                 if (!lugar.contenido(lugares)) {
                     lugares.add(lugar);
                 }
                 String[] fecha = d.getFechaPedido().split("/");
-                Tiempo tiempo = new Tiempo(Integer.parseInt(fecha[0]),Integer.parseInt(fecha[1]),Integer.parseInt(fecha[2]));
+                Tiempo tiempo = new Tiempo(Integer.parseInt(fecha[0]),Integer.parseInt(fecha[1]),Integer.parseInt(fecha[2]),d.getImporte());
                 if (!tiempo.contenido(tiempos)) {
                     tiempos.add(tiempo);
                 }

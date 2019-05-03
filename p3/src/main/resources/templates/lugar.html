@@ -5,6 +5,7 @@
             <th>Pais</th>
             <th>Capital</th>
             <th>NumHabitantes</th>
+            <th>VentaTotal</th>
         </tr>
         </thead>
         {{#lugares}}
@@ -18,6 +19,7 @@
             {{^habitantes}}
             <td></td>
             {{/habitantes}}
+            <td>{{importeTotal}}</td>
         </tr>
         </tbody>
         {{/lugares}}

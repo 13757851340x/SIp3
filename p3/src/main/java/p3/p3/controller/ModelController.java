@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import p3.p3.model.*;
 import p3.p3.repository.*;
 
@@ -34,7 +35,19 @@ public class ModelController {
         model.addAttribute("lugares",lugares);
         model.addAttribute("productos",productos);
         model.addAttribute("tiempos",tiempos);
+        model.addAttribute("tabla",true);
         return "index";
     }
 
+    @PostMapping("/chart")
+    public String chart (Model model){
+        model.addAttribute("tabla",false);
+        return "index";
+    }
+
+    @PostMapping("/tabla")
+    public String tabla (Model model){
+        model.addAttribute("tabla",true);
+        return "index";
+    }
 }

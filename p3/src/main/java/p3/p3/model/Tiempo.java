@@ -12,16 +12,18 @@ public class Tiempo {
     private String nomMes;
     private int numMes;
     private int anyo;
+    private int importeTotal;
 
     public Tiempo (){
 
     }
 
-    public Tiempo(int dia, int numMes, int anyo) {
+    public Tiempo(int dia, int numMes, int anyo,int importeTotal) {
         this.dia = dia;
         this.numMes = numMes;
         this.nomMes =this.toNom();
         this.anyo = anyo;
+        this.importeTotal=importeTotal;
     }
 
     public Long getId() {
@@ -64,11 +66,20 @@ public class Tiempo {
         this.anyo = anyo;
     }
 
+    public int getImporteTotal() {
+        return importeTotal;
+    }
+
+    public void setImporteTotal(int importeTotal) {
+        this.importeTotal = importeTotal;
+    }
+
     public boolean contenido(List<Tiempo> tiempos){
         boolean contiene = false;
         for(Tiempo t: tiempos){
             if((t.getDia()==this.getDia())&&(t.getNumMes()==this.getNumMes())&&(t.getAnyo()==this.getAnyo())){
                 contiene=true;
+                t.setImporteTotal(t.getImporteTotal()+this.getImporteTotal());
             }
         }
         return contiene;
