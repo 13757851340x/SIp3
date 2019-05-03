@@ -78,4 +78,15 @@ public class ModelController {
         string+="]";
         return string;
     }
+
+    @GetMapping(value = "/cliente",produces = "text/javascript")
+    public @ResponseBody String cliente(){
+        List<Cliente> clientes = clienteRepo.findAll();
+        String string ="var cliente=[";
+        for(Cliente c:clientes){
+            string+="['"+c.getNombre()+"','"+c.getApellido()+"',"+c.getImporteTotal()+"]"+",";
+        }
+        string+="]";
+        return string;
+    }
 }
