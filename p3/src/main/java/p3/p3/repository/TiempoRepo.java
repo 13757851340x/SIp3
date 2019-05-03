@@ -6,6 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface TiempoRepo extends JpaRepository<Tiempo,Long> {
-    List<Tiempo> findAll();
     Tiempo findByDiaAndNumMesAndAnyo(int d,int m,int y);
 }

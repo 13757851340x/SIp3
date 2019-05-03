@@ -8,5 +8,4 @@ import java.util.List;
 
 
 public interface DataTableRepo extends JpaRepository<DataTable,Long> {
-    List<DataTable> findAll();
 }

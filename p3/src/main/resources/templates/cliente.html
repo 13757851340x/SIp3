@@ -1,0 +1,22 @@
+<div class="tab-pane" id="link2" aria-expanded="false">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>FechaAlta</th>
+        </tr>
+        </thead>
+        {{#clientes}}
+        <tbody>
+        <tr>
+            <td >{{nombre}}</td>
+            <td>{{apellido}}</td>
+            <td>{{email}}</td>
+            <td>{{dia}}/{{mes}}/{{anyo}}</td>
+        </tr>
+        </tbody>
+        {{/clientes}}
+    </table>
+</div>

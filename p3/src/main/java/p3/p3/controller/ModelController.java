@@ -22,10 +22,10 @@ public class ModelController {
     @Autowired
     private TiempoRepo tiempoRepo;
 
-    @GetMapping("/index")
+    @GetMapping("/")
     public String index(Model model){
         List<Compra> compras = compraRepo.findAll();
-        List<Cliente> clientes = clienteRepo.findALL();
+        List<Cliente> clientes = clienteRepo.findAll();
         List<Lugar> lugares = lugarRepo.findAll();
         List<Producto> productos = productoRepo.findAll();
         List<Tiempo> tiempos = tiempoRepo.findAll();

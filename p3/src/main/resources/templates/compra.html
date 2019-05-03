@@ -1,0 +1,43 @@
+<div class="tab-pane active" id="link1" aria-expanded="true">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>NombreCliente</th>
+            <th>ApellidoCliente</th>
+            <th>EmailCliente</th>
+            <th>FechaAltaCliente</th>
+            <th>Item</th>
+            <th>Precio</th>
+            <th>Descripcion</th>
+            <th>Valoracion</th>
+            <th>Pais</th>
+            <th>Capital</th>
+            <th>NumHabitantes</th>
+            <th>FechaCompra</th>
+        </tr>
+        </thead>
+        {{#compras}}
+        <tbody>
+        <tr>
+            <td >{{cliente.nombre}}</td>
+            <td>{{cliente.apellido}}</td>
+            <td>{{cliente.email}}</td>
+            <td>{{cliente.dia}}/{{cliente.mes}}/{{cliente.anyo}}</td>
+            <td>{{producto.nombre}}</td>
+            <td>{{producto.importe}}</td>
+            <td>{{producto.descripcion}}</td>
+            <td>{{valoracion}}</td>
+            <td>{{lugar.pais}}</td>
+            <td>{{lugar.capital}}</td>
+            {{#lugar.habitantes}}
+            <td>{{lugar.habitantes}}</td>
+            {{/lugar.habitantes}}
+            {{^lugar.habitantes}}
+            <td></td>
+            {{/lugar.habitantes}}
+            <td>{{tiempo.dia}}/{{tiempo.numMes}}/{{tiempo.anyo}}</td>
+        </tr>
+        </tbody>
+        {{/compras}}
+    </table>
+</div>
