@@ -1,7 +1,35 @@
-<button class="btn btn-round btn btn-primary" style="margin-left: 90%" onclick="tabla()">
+<script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+            ['nombre','importeTotal'],
+            ...json
+        ]);
+
+        var options = {
+            title: 'Ventas de cada producto',
+            pieHole: 0.5,
+            pieSliceTextStyle: {
+                color: 'black',
+            },
+            legend: 'top',
+            is3D: false
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById("PieChart"));
+
+        chart.draw(data,options);
+    }
+</script>
+<a href="/">
+<button class="btn btn-round btn btn-primary" style="margin-left: 90%">
     <i class="material-icons">compare_arrows</i>
     Tablas
 </button>
+</a>
 <div class="container-fluid">
     <div id="PieChart" style="width: 100%; height: 500px;"></div>
 </div>
