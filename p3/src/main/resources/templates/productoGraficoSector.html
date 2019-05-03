@@ -1,0 +1,27 @@
+<script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+            ['nombre','importeTotal'],
+            ...producto
+    ]);
+
+        var options = {
+            title: 'Ventas de cada producto',
+            pieHole: 0.5,
+            pieSliceTextStyle: {
+                color: 'black',
+            },
+            legend: 'top',
+            is3D: false
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById("ProductoPieChart"));
+
+        chart.draw(data,options);
+    }
+</script>
+<div id="ProductoPieChart" style="width: 100%; height: 500px;"></div>

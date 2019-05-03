@@ -57,12 +57,23 @@ public class ModelController {
         return "index";
     }
 
-    @GetMapping(value = "/comilla",produces = "text/javascript")
-    public @ResponseBody String comilla (){
+    @GetMapping(value = "/producto",produces = "text/javascript")
+    public @ResponseBody String producto(){
         List<Producto> productos = productoRepo.findAll();
-        String string ="var json=[";
+        String string ="var producto=[";
         for(Producto p :productos){
-            string+="['"+p.getNombre()+"',"+p.getImporte()+"]"+",";
+            string+="['"+p.getNombre()+"',"+p.getImporteTotal()+"]"+",";
+        }
+        string+="]";
+        return string;
+    }
+
+    @GetMapping(value = "/lugar",produces = "text/javascript")
+    public @ResponseBody String lugar(){
+        List<Lugar> lugares = lugarRepo.findAll();
+        String string ="var lugar=[";
+        for(Lugar l:lugares){
+            string+="['"+l.getPais()+"',"+l.getImporteTotal()+"]"+",";
         }
         string+="]";
         return string;
