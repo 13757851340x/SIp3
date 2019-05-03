@@ -1,3 +1,4 @@
+<H2>Ventas de cada producto</H2>
 <script type="text/javascript">
     google.charts.load('current', {'packages':['corechart']});
     google.setOnLoadCallback(drawChart);
@@ -10,13 +11,12 @@
     ]);
 
         var options = {
-            title: 'Ventas de cada producto',
             pieHole: 0.5,
             pieSliceTextStyle: {
                 color: 'black',
             },
             legend: 'top',
-            is3D: false
+            is3D: true,
         };
 
         var chart = new google.visualization.PieChart(document.getElementById("ProductoPieChart"));

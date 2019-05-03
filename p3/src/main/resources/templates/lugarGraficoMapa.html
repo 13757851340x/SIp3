@@ -1,9 +1,12 @@
+<br>
+<H2>Importe de ventas por región</H2>
 <script type="text/javascript">
     google.charts.load('current', {
         'packages':['geochart'],
         'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
     });
     google.setOnLoadCallback(drawChart);
+
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
             ['pais', 'importeTotal'],
@@ -11,7 +14,10 @@
 
     ]);
 
-        var options = {};
+        var options = {
+            region: '150',
+            colorAxis: {colors: ['#A7F9DE', '#2DBBF0']},
+        };
 
         var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
 
