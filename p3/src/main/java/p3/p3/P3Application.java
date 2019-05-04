@@ -78,6 +78,4 @@ public class P3Application {
             }
         };
     }
-
-
 }
