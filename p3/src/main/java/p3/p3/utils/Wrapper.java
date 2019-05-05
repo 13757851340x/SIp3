@@ -10,15 +10,15 @@ public class Wrapper {
 
     List<DataTable> dataTables = new ArrayList<>();
 
-    File archivo1 = new File("Data/Practica_3_SSII_hechos1.csv");
+    File archivo1 = new File("src/Practica_3_SSII_hechos1.csv");
     FileReader fr1 = new FileReader(archivo1);
     BufferedReader bf1 = new BufferedReader(fr1);
 
-    File archivo2 = new File("Data/Practica_3_SSII_hechos2.csv");
+    File archivo2 = new File("src/Practica_3_SSII_hechos2.csv");
     FileReader fr2 = new FileReader(archivo2);
     BufferedReader bf2 = new BufferedReader(fr2);
 
-    File archivo3 = new File("Data/Practica_3_SSII_hechos3.csv");
+    File archivo3 = new File("src/Practica_3_SSII_hechos3.csv");
     FileReader fr3 = new FileReader(archivo3);
     BufferedReader bf3 = new BufferedReader(fr3);
 
